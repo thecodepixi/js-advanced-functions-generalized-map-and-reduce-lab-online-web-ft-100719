@@ -8,9 +8,13 @@ function map(array,func){
   return r
 }
 
-function reduce(array, func, start = false){
-  array.forEach(elem => {
-    start = func(elem, start)
-  })
-  return start
+function reduce(array, func, start){
+  let r = !!start ? start : array[0]
+  let i = !!start ? 0 : 1
+
+  for (i; i < array.length; i++){
+    r = func(array[i], r)
+  }
+
+  return r
 }
